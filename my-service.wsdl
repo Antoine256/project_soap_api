@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions
+        xmlns="http://schemas.xmlsoap.org/wsdl/"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="urn:example:my-service"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="urn:example:my-service">
+
+    <!-- Définition des types de données -->
+    <types>
+        <schema targetNamespace="urn:example:my-service" xmlns="http://www.w3.org/2001/XMLSchema">
+            <element name="MyFunctionRequest">
+                <complexType>
+                    <sequence>
+                        <element name="name" type="xsd:string"/>
+                    </sequence>
+                </complexType>
+            </element>
+            <element name="MyFunctionResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="xsd:string"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+    <!-- Définition du service -->
+    <message name="MyFunctionRequestMessage">
+        <part name="parameters" element="tns:MyFunctionRequest"/>
+    </message>
+    <message name="MyFunctionResponseMessage">
+        <part name="parameters" element="tns:MyFunctionResponse"/>
+    </message>
+
+    <portType name="MyPortType">
+        <operation name="MyFunction">
+            <input message="tns:MyFunctionRequestMessage"/>
+            <output message="tns:MyFunctionResponseMessage"/>
+        </operation>
+    </portType>
+
+    <binding name="MyBinding" type="tns:MyPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="MyFunction">
+            <soap:operation soapAction="urn:example:my-service#MyFunction"/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="MyService">
+        <port name="MyPort" binding="tns:MyBinding">
+            <soap:address location="http://localhost:3000/my-soap-api"/>
+        </port>
+    </service>
+</definitions>
