@@ -2,6 +2,9 @@ const express = require('express');
 const soap = require('soap');
 const {readFileSync} = require("fs");
 const cors = require('cors');
+require('dotenv').config();
+
+const PORT = process.env.PORT || 3000;
 
 
 const app = express();
@@ -63,8 +66,6 @@ function parseSoapRequest(soapRequest) {
     return args;
 }
 
-// Démarrez le serveur HTTP
-const port = 3000;
-app.listen(port, () => {
-    console.log("Server is listening on port "+port);
+app.listen(PORT, () => {
+    console.log("Server is listening on port "+PORT);
 });
