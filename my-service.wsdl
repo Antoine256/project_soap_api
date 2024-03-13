@@ -12,14 +12,14 @@
             <element name="MyFunctionRequest">
                 <complexType>
                     <sequence>
-                        <element name="name" type="xsd:string"/>
+                        <element name="time" type="xsd:float"/>
                     </sequence>
                 </complexType>
             </element>
             <element name="MyFunctionResponse">
                 <complexType>
                     <sequence>
-                        <element name="result" type="xsd:string"/>
+                        <element name="data" type="xsd:string"/>
                     </sequence>
                 </complexType>
             </element>
@@ -56,7 +56,7 @@
 
     <service name="MyService">
         <port name="MyPort" binding="tns:MyBinding">
-            <soap:address location="http://localhost:3000/my-soap-api"/>
+            <soap:address location="http://localhost:3080/wsdl"/>
         </port>
     </service>
 </definitions>
