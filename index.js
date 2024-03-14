@@ -20,7 +20,6 @@ const service = {
                 let time = args.time;
                 let timeH = Math.floor(time/3600);
                 let timeM = Math.floor((time % 3600) / 60);
-                console.log(timeH + "h" + timeM);
                 return {
                     data: timeH + "h" + timeM
                 };
