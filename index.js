@@ -38,39 +38,4 @@ app.listen(PORT, () => {
     });
 })
 
-// Définissez un endpoint pour les requêtes SOAP
-// app.get('/my-road', (req, res) => {
-//     console.log(req);
-//     let result = service.MyService.MyPort.MyFunction(parseSoapRequest(req.body));
-//     res.send(result);
-// });
-//
-// app.get('/', (req, res) => {
-//     result = "Hello World!";
-//     res.send('Hello World!');
-// });
 
-// Fonction pour extraire les paramètres de la requête SOAP
-// function parseSoapRequest(soapRequest) {
-//     const parseString = require('xml2js').parseString;
-//
-//     let args = {};
-//
-//     parseString(soapRequest, { explicitArray: false }, (err, result) => {
-//         if (err) {
-//             console.error("Error parsing SOAP request: "+ err);
-//         } else {
-//             // Customisez cela en fonction de la structure réelle de votre requête SOAP
-//             const nameElement = result['soapenv:Envelope']['soapenv:Body']['web:MyFunction']['web:name'];
-//
-//             // Supprimez les guillemets simples autour de la valeur 'Route de la soie'
-//             args.name = nameElement.replace(/^'|'$/g, '');
-//         }
-//     });
-//
-//     return args;
-// }
-
-// app.listen(PORT, () => {
-//     console.log("Server is listening on port "+PORT);
-// });
