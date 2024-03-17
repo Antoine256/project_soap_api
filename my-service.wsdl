@@ -56,7 +56,7 @@
 
     <service name="MyService">
         <port name="MyPort" binding="tns:MyBinding">
-            <soap:address location="https://antoine256-project-soap-api.azurewebsites.net/wsdl"/>
+            <soap:address location="http://localhost:3080/wsdl"/>
         </port>
     </service>
 </definitions>
