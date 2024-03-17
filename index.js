@@ -17,7 +17,7 @@ const service = {
         MyPort: {
             MyFunction: function (args) {
                 console.log(args);
-                let time = args.time;
+                let time = args.time + 600*Number(args.stations);
                 let timeH = Math.floor(time/3600);
                 let timeM = Math.floor((time % 3600) / 60);
                 return {
